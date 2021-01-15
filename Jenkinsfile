@@ -3,14 +3,14 @@ pipeline {
     agent any    
     
     environment {
-        DTR_FQDN_PORT='<REG_FQDN>:4443'
+        DTR_FQDN_PORT='ec2-18-194-59-161.eu-central-1.compute.amazonaws.com:4443'
     }
 
     stages {
         stage('Build') {
             environment {
                 DTR_ACCESS_KEY = credentials('jenkins-dtr-access-token')
-        MAJORMINOR = '0.0'
+                MAJORMINOR = '0.0'
             }
             steps {
             sh 'docker --context=buildserver image build -t \
